@@ -1,0 +1,312 @@
+/* Base Reset & Fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  background-image: url('beach.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+}
+
+/* Content Wrapper with Flexbox */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Take full viewport height */
+  justify-content: space-between; /* Push footer to bottom */
+}
+
+/* Sidebar Styling */
+.slide {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden off-screen by default */
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  z-index: 1000;
+  transition: left 0.3s ease-in-out;
+  padding: 20px;
+}
+
+.slide h1 {
+  margin-bottom: 10px;
+}
+
+.slide ul {
+  list-style: none;
+}
+
+.slide li {
+  margin: 10px 0;
+}
+
+.slide a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+}
+
+.slide a:hover {
+  background-color: #555;
+}
+
+/* Hamburger Icon */
+.toggle {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 1500;
+}
+
+.top_line,
+.middle_line,
+.bottom_line {
+  background-color: #333;
+  height: 4px;
+  width: 30px;
+  margin: 4px auto;
+}
+
+/* Main Content */
+#mainid {
+  text-align: center;
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 50px auto 0;
+}
+
+/* Footer */
+footer {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+}
+
+/* Styling for About Section */
+.about-section {
+  margin: 30px auto;
+  max-width: 800px;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+.about-image {
+  width: 100%; /* Makes the image responsive */
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.about-description {
+  font-size: 18px;
+  color: white;
+  line-height: 1.6;
+}
+
+/* Override for Glasgow Room Background */
+#mainid[style] {
+  background-color: white; /* Clean background for Glasgow Room */
+}
+
+#mainid {
+  background-color: white;
+  color: black;
+}
+
+.about-description {
+  color: black; /* Matches the background contrast */
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+.image-bundle {
+  height: 100%;
+  display: flex;
+  align-items: flex-start; /* Align everything to the top */
+  gap: 15px; /* Space between the large image and the smaller ones */
+  margin: 20px auto; 
+}
+
+.image-large {
+  width: 60%; /* Set the large image to occupy more width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.image-small-container {
+  display: flex;
+  flex-direction: column; /* Stack the two smaller images vertically */
+  justify-content: space-between; /* Space them evenly in their vertical container */
+  height: 100%; /* Match the height of the large image */
+}
+
+.image-small {
+  width: 100%; /* Full width of the smaller container */
+  height: calc(50% - 5px); /* Divide the height evenly */
+  object-fit: cover; /* Ensure images scale properly */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+/* Header Box Styling */
+.header-box {
+  background: linear-gradient(to bottom, #4facfe, #00f2fe); /* Sea-like blue gradient */
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px 0; /* Adds some space above and below the box */
+  color: white;
+}
+
+/* Description Box Styling */
+.description-box {
+  background: rgba(255, 255, 255, 0.85); /* Slightly transparent box for text contrast */
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 700px;
+  color: #333;
+}
+
+/* Image Bundle - General responsiveness */
+.image-bundle {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin: 20px auto;
+}
+
+/* Adjust for mobile responsiveness */
+@media (max-width: 768px) {
+  .image-large,
+  .image-small {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* General Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #f0f8ff; /* Light sea-inspired background */
+  color: #333;
+}
+
+/* Header Section */
+.header-box {
+  background: linear-gradient(to right, #00a9d9, #0077b6);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Contact Container Styling */
+.contact-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+form textarea {
+  resize: none;
+}
+
+button[type="submit"] {
+  background-color: #0077b6;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background-color: #005f99;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  margin-top: 40px;
+}
+.pay-now-button {
+  display: inline-block;
+  background-color: #007BFF;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.pay-now-button:hover {
+  background-color: #0056b3;
+}
+

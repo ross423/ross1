@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Beachview Manor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Sidebar Menu -->
+  <div class="slide" id="sidebar">
+    <h1>Menu</h1>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="glasgow-room.html"><i class="fas fa-bed"></i> Glasgow Room</a></li>
+      <li><a href="edinburgh-room.html"><i class="fas fa-bed"></i> Edinburgh Room</a></li>
+      <li><a href="aberdeen-room.html"><i class="fas fa-bed"></i> Aberdeen Room</a></li>
+      <li><a href="dundee-room.html"><i class="fas fa-bed"></i> Dundee Room</a></li>
+      <li><a href="facilities.html"><i class="fas fa-concierge-bell"></i> Facilities</a></li>
+      <li><a href="local-area.html"><i class="fas fa-map-marked-alt"></i> Local Area</a></li>
+      <li><a href="contact-us.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Hamburger Icon -->
+  <div class="toggle" id="menu-button">
+    <div class="top_line"></div>
+    <div class="middle_line"></div>
+    <div class="bottom_line"></div>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="content-wrapper">
+    <!-- Header Section -->
+    <div class="header-box">
+      <h1>Contact Us</h1>
+      <h2>We'd Love to Hear From You</h2>
+    </div>
+
+    <!-- Contact Form Section -->
+    <div class="contact-container">
+      <form action="https://formspree.io/f/{your-form-id}" method="POST">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required />
+
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2023 Beachview Manor. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Sidebar Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const sidebar = document.getElementById('sidebar');
+      const menuButton = document.getElementById('menu-button');
+
+      let sidebarOpen = false;
+
+      function toggleSidebar() {
+        if (sidebarOpen) {
+          sidebar.style.left = '-250px';
+        } else {
+          sidebar.style.left = '0';
+        }
+        sidebarOpen = !sidebarOpen;
+      }
+
+      menuButton.addEventListener('click', function () {
+        toggleSidebar();
+      });
+
+      // Ensure sidebar starts off-screen
+      sidebar.style.left = '-250px';
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Glasgow Room - Beachview Manor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="content-wrapper">
+    <!-- Sidebar Menu -->
+    <div class="slide" id="sidebar">
+      <h1>Menu</h1>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="glasgow-room.html"><i class="fas fa-bed"></i> Glasgow Room</a></li>
+        <li><a href="edinburgh-room.html"><i class="fas fa-bed"></i> Edinburgh Room</a></li>
+        <li><a href="aberdeen-room.html"><i class="fas fa-bed"></i> Aberdeen Room</a></li>
+        <li><a href="dundee-room.html"><i class="fas fa-bed"></i> dundee room</a></li>
+        <li><a href="facilities.html"><i class="fas fa-concierge-bell"></i> Facilities</a></li>
+        <li><a href="local-area.html"><i class="fas fa-map-marked-alt"></i> Local Area</a></li>
+        <li><a href="contact-us.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Hamburger Icon -->
+    <div class="toggle" id="menu-button">
+      <div class="top_line"></div>
+      <div class="middle_line"></div>
+      <div class="bottom_line"></div>
+    </div>
+
+    <!-- Main Content with Blank Background -->
+    <div id="mainid" style="background-color: white; color: black;">
+      <h1><strong><u>edinburgh Room</u></strong></h1>
+      <h2>A Blend of Comfort and Charm</h2>
+      <h3>Double Room</h3>
+      <div class="about-section">
+          <img src="doubleroom.jpg" alt="Glasgow Room" class="about-image">
+          <p class="about-description">
+            
+  Step into timeless elegance with the Edinburgh Room, where classic decor meets modern comfort. Featuring cozy interiors, luxurious bedding, and a serene atmosphere, this room is perfect for a peaceful escape
+          </p>
+      </div>
+  </div>
+  
+  <footer>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </footer>
+
+  <!-- Inline Script for Menu Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const sidebar = document.getElementById('sidebar');
+      const menuButton = document.getElementById('menu-button');
+
+      let sidebarOpen = false;
+
+      function toggleSidebar() {
+        if (sidebarOpen) {
+          sidebar.style.left = '-250px';
+        } else {
+          sidebar.style.left = '0px';
+        }
+        sidebarOpen = !sidebarOpen;
+      }
+
+      menuButton.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleSidebar();
+      });
+
+      document.addEventListener('click', function (e) {
+        if (
+          sidebarOpen &&
+          !sidebar.contains(e.target) &&
+          !menuButton.contains(e.target)
+        ) {
+          sidebar.style.left = '-250px';
+          sidebarOpen = false;
+        }
+      });
+
+      // Ensure sidebar starts hidden
+      sidebar.style.left = '-250px';
+    });
+  </script>
+</body>
+</html>

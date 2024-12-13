@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment - Beachview Manor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff;
+    }
+
+    .content-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      transition: margin-left 0.3s ease;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Sidebar menu styles */
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px; /* Initially hidden */
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+
+    #sidebar h1 {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    #sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #sidebar li {
+      margin: 10px 0;
+    }
+
+    #sidebar a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    #menu-button {
+      cursor: pointer;
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1100;
+    }
+
+    .menu-bar {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Payment Section */
+    .payment-container {
+      margin: 40px 0 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label,
+    input,
+    select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .pay-button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .pay-button:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <h1>Menu</h1>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="glasgow-room.html"><i class="fas fa-bed"></i> Glasgow Room</a></li>
+      <li><a href="edinburgh-room.html"><i class="fas fa-bed"></i> Edinburgh Room</a></li>
+      <li><a href="aberdeen-room.html"><i class="fas fa-bed"></i> Aberdeen Room</a></li>
+      <li><a href="dundee-room.html"><i class="fas fa-bed"></i> Dundee Room</a></li>
+      <li><a href="facilities.html"><i class="fas fa-concierge-bell"></i> Facilities</a></li>
+      <li><a href="local-area.html"><i class="fas fa-map-marked-alt"></i> Local Area</a></li>
+      <li><a href="contact-us.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Hamburger menu -->
+  <div id="menu-button">
+    <div class="menu-bar"></div>
+    <div class="menu-bar"></div>
+    <div class="menu-bar"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content-wrapper">
+    <header>
+      <h1>Beachview Manor</h1>
+      <h2>Select Your Room and Complete Payment</h2>
+    </header>
+
+    <div class="payment-container">
+      <form id="payment-form">
+        <label for="room-selection">Select a Room:</label>
+        <select id="room-selection" name="room-selection" required>
+          <option value="" disabled selected>Choose a room</option>
+          <option value="glasgow-room" data-price="120">Glasgow Room - $120/night</option>
+          <option value="edinburgh-room" data-price="150">Edinburgh Room - $150/night</option>
+          <option value="aberdeen-room" data-price="130">Aberdeen Room - $220/night</option>
+          <option value="dundee-room" data-price="140">Dundee Room - $100/night</option>
+        </select>
+
+        <label for="nights">Number of Nights:</label>
+        <input type="number" id="nights" name="nights" min="1" placeholder="Enter number of nights" required />
+
+        <div class="price-box">
+          <p id="price-summary">Total: $0</p>
+        </div>
+
+        <label for="full-name">Full Name:</label>
+        <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required />
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+
+        <button type="submit" class="pay-button">Pay Now</button>
+      </form>
+    </div>
+
+    <footer>
+      <p>&copy; 2023 Beachview Manor. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const menuButton = document.getElementById('menu-button');
+
+    menuButton.addEventListener('click', () => {
+      sidebar.style.left = sidebar.style.left === '0px' ? '-250px' : '0px';
+    });
+
+    const roomSelection = document.getElementById("room-selection");
+    const nightsInput = document.getElementById("nights");
+    const priceSummary = document.getElementById("price-summary");
+
+    function calculatePrice() {
+      const selectedRoom = roomSelection.options[roomSelection.selectedIndex];
+      const pricePerNight = selectedRoom ? parseFloat(selectedRoom.getAttribute("data-price")) : 0;
+      const nights = parseInt(nightsInput.value) || 0;
+      const totalPrice = pricePerNight * nights;
+
+      priceSummary.textContent = `Total: $${totalPrice.toFixed(2)}`;
+    }
+
+    roomSelection.addEventListener("change", calculatePrice);
+    nightsInput.addEventListener("input", calculatePrice);
+  </script>
+</body>
+
+</html>

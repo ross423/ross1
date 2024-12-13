@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Beachview Manor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="content-wrapper">
+    <!-- Sidebar Menu -->
+    <div class="slide" id="sidebar">
+      <h1>Menu</h1>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="glasgow-room.html"><i class="fas fa-bed"></i> Glasgow Room</a></li>
+        <li><a href="edinburgh-room.html"><i class="fas fa-bed"></i> Edinburgh Room</a></li>
+        <li><a href="aberdeen-room.html"><i class="fas fa-bed"></i> Aberdeen Room</a></li>
+        <li><a href="dundee-room.html"><i class="fas fa-bed"></i> Dundee Room</a></li>
+        <li><a href="#"><i class="fas fa-concierge-bell"></i> Facilities</a></li>
+        <li><a href="#"><i class="fas fa-map-marked-alt"></i> Local Area</a></li>
+        <li><a href="#"><i class="fas fa-envelope"></i> Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Hamburger Icon -->
+    <div class="toggle" id="menu-button">
+      <div class="top_line"></div>
+      <div class="middle_line"></div>
+      <div class="bottom_line"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainid">
+      <h1><strong><u>Beachview Manor</u></strong></h1>
+      <h2>Welcome to our guest house experience</h2>
+      <p><img src="trust.jpg" alt="Trust Logo" width="275" height="75"></p>
+      
+      <!-- About Section -->
+      <div class="about-section">
+        <img src="beachview1.jpg" alt="Beachview Manor" class="about-image">
+        <p class="about-description">
+          Nestled along the scenic coastline, Beachview Manor offers breathtaking ocean views, luxurious accommodations, 
+          and warm hospitality. Whether you're here for relaxation or adventure, our 8-bedroom guest house is the perfect getaway destination.
+        </p>
+        <!-- Pay Now Button -->
+        <a href="payment.html" class="pay-now-button">Pay Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </footer>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const menuButton = document.getElementById('menu-button');
+
+    // Sidebar menu toggle
+    menuButton.addEventListener('click', function (e) {
+      e.stopPropagation(); 
+      toggleSidebar();
+    });
+
+    function toggleSidebar() {
+      if (sidebar.style.left === '0px') {
+        sidebar.style.left = '-250px';
+      } else {
+        sidebar.style.left = '0px';
+      }
+    }
+
+    // Close sidebar when clicking outside the menu
+    document.addEventListener('click', function (e) {
+      if (sidebar.style.left === '0px' && !sidebar.contains(e.target) && !menuButton.contains(e.target)) {
+        sidebar.style.left = '-250px';
+      }
+    });
+
+    // Ensure sidebar is closed on load
+    window.onload = function () {
+      sidebar.style.left = '-250px';
+    };
+  </script>
+</body>
+
+</html>
